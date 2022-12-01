@@ -1,6 +1,24 @@
 body{
     display: flex;
     flex-direction: column;
+}
+
+#name{
+    align-self: center;
+}
+
+#game-try{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 150px;
+    margin-right: 50px;
+}
+
+#game-pane{
+    display: flex;
+    justify-content: center;
     align-items: center;
 }
 
@@ -13,3 +31,25 @@ img{
 #gamePanel{
     width: 500px;
 }
+
+form{
+    display: flex;
+    flex-direction: column;
+}
+
+input{
+    margin-bottom: 10px;
+}
+
+input[input="radio"]{
+    vertical-align: middle;
+}
+
+input[type="text"]{
+    width: 50px;
+}
+
+input[type="submit"]{
+    width: 100%;
+}
+
