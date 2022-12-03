@@ -22,14 +22,24 @@ body{
     align-items: center;
 }
 
-img{
+table{
+    width: 100%;
+}
+
+td{
     border: 5px solid blue;
+    height: 100px;
+    background-color: white;
     width: 100px;
-    height:  100px;
+    text-align: center;
 }
 
 #gamePanel{
     width: 500px;
+}
+
+#div-form{
+    margin-left: 20px;
 }
 
 form{
@@ -51,5 +61,12 @@ input[type="text"]{
 
 input[type="submit"]{
     width: 100%;
+}
+
+
+/* onCLick */
+
+.pulsado{
+    color: blue;
 }
 
