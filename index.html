@@ -8,7 +8,10 @@
     <title>Document</title>
 </head>
 <body>
-    <h1 id="name">Buscar parejas - Martin Deibe Monteagudo</h1>
+    <header>
+        <h1 id="name">Buscar parejas - Martin Deibe Monteagudo</h1>
+
+    </header>
 
     <div id="game-pane">
         <div id="game-try">
@@ -39,6 +42,8 @@
 
                 </tr>
             </table>
+            <p id="msg-confirm"></p>
+
         </div>
             <div id="div-form">
                 <h3 id="dificultad">Dificulta</h3>
@@ -65,9 +70,9 @@
 
                     <div>
                         <label for="filas">Filas</label>
-                        <input type="text" name="filas" id="filas">
+                        <input type="text" name="filas" id="filas" disabled>
                         <label for="columnas">Columnas</label>
-                        <input type="text" name="columnas" id="columnas">
+                        <input type="text" name="columnas" id="columnas" disabled>
                         <input type="submit" value="submit">
                         
                     </div>
@@ -76,6 +81,6 @@
     </div>    
 </body>
 
-<script src="./javascript/index.js"></script>
+<script class="abc" src="./javascript/index.js"></script>
 
 </html>

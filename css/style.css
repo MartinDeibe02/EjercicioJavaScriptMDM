@@ -4,7 +4,7 @@ body{
 }
 
 #name{
-    align-self: center;
+    text-align: center;
 }
 
 #game-try{
@@ -24,18 +24,25 @@ body{
 
 table{
     width: 100%;
+    border-spacing: 10px;
+
 }
 
 td{
-    border: 5px solid blue;
+    border: 3px solid blue;
     height: 100px;
-    background-color: white;
+    background-color: rgb(225, 222, 222);
     width: 100px;
     text-align: center;
+
 }
 
 #gamePanel{
     width: 500px;
+}
+
+#gamePanel p{
+    text-align: center;
 }
 
 #div-form{
@@ -68,5 +75,6 @@ input[type="submit"]{
 
 .pulsado{
     color: blue;
+    background-color: white;
 }
 
