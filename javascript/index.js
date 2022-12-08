@@ -1,18 +1,62 @@
 const casillas_td = document.getElementsByTagName("td");
-const tabla = document.getElementById("tabla");
+let tabla = undefined;
 const msg = document.getElementById("msg");
 const msgRestante = document.getElementById("restante");
 const msgConfirm = document.getElementById("msg-confirm");
-const numFilas=tabla.rows.length;
-const numColumnas=tabla.rows[0].cells.length;
+const div1 = document.getElementById("gamePanel");
+let numFilas = 0;
+let numColumnas=0;
+let valorFilas;
+let valorColumnas;
 
 let lockClick = false;
 let last;
 let intentos = 0;
 let restante;
 
+function iniciar(){
+getvalue();
+console.log(valorFilas);
+genera_tabla(valorFilas,valorColumnas);
+game();
+}
 
+function getvalue(){
+    valorFilas= document.getElementById('filas').value;
+    valorColumnas=document.getElementById('columnas').value;
+}
+
+function genera_tabla(filas, columnas) {
+    // Crea un elemento table y un elemento tbody
+    var tabla1   = document.createElement("table");
+    var tblBody = document.createElement("tbody");
+
+    tabla1.setAttribute("id", "tabla");
+
+    // Crea las celdas
+    for (var i = 0; i < filas; i++) {
+        var fila = document.createElement("tr");
+
+    for (var j = 0; j < columnas; j++) {
+        
+        var celda = document.createElement("td");
+        fila.appendChild(celda);
+    }
+    tblBody.appendChild(fila);
+    }
+
+    tabla1.appendChild(tblBody);
+    // appends table en body
+    div1.append(tabla1)
+    console.log(tabla1);
+    tabla = document.getElementById("tabla");
+
+    numFilas = tabla.rows.length
+    numColumnas=tabla.rows[0].cells.length;
+
+}
 // Itera las filas
+function game(){
 for (let i = 0; i < numFilas; i++) {
     const fila = tabla.rows[i];
     for (let j = 0; j < fila.cells.length; j++) {
@@ -72,6 +116,7 @@ for (let i = 0; i < (numFilas * numColumnas) / 2; i++) {
     restante = i+1;
 }
 msgRestante.innerHTML = restante;
+}
 
 function generarPareja(value) {
     let pareja = 0;
@@ -89,8 +134,9 @@ function generarPareja(value) {
 
 //Comprobar si hay ganador
 function getWinner(){
-    //Itera por todas las casillas para ver si estan pulsadas
+    //Itera por todas las casillas
     for(const casilla of casillas_td){
+        //Comprueba si todaslas casillas tienen clase "pulsado"
         const win = casilla.classList.contains("pulsado");
         if(win == false){
             return;
@@ -110,4 +156,35 @@ function getWinner(){
 function randomNumber(min, max) {
     return Math.floor(Math.random() * max) - min;
 }
+
+function dificultad(x){
+    if(x==1){ //FACIL
+        document.getElementById('filas').disabled = true;
+        document.getElementById('columnas').disabled = true;
+
+        document.getElementById('filas').value=5;
+        document.getElementById('columnas').value=6;
+
+        console.log(document.getElementById('filas').value);
+    }else if(x==2){ //MEDIO
+        document.getElementById('filas').disabled = true;
+        document.getElementById('columnas').disabled = true;
+
+        document.getElementById('filas').value=6;
+        document.getElementById('columnas').value=6;
+    }else if(x==3){ //DIFICIL
+        document.getElementById('filas').disabled = true;
+        document.getElementById('columnas').disabled = true;
+
+        document.getElementById('filas').value=10;
+        document.getElementById('columnas').value=10;
+    }else{ //PERSONALIZADO
+        document.getElementById('filas').disabled = false; //habilito
+        document.getElementById('columnas').disabled = false;
+
+        document.getElementById('filas').value;
+        document.getElementById('columnas').value;
+    }
+}
+
 
