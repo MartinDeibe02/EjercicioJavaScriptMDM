@@ -1,5 +1,5 @@
 const casillas_td = document.getElementsByTagName("td");
-let tabla = undefined;
+let tabla;
 const msg = document.getElementById("msg");
 const msgRestante = document.getElementById("restante");
 const msgConfirm = document.getElementById("msg-confirm");
@@ -14,9 +14,17 @@ let last;
 let intentos = 0;
 let restante;
 
-function iniciar(){
+
+window.onload = function () {
+    intentos = 0;
 getvalue();
-console.log(valorFilas);
+genera_tabla(3,4);
+game();
+}
+
+function iniciar(){
+intentos = 0;
+getvalue();
 genera_tabla(valorFilas,valorColumnas);
 game();
 }
@@ -27,11 +35,22 @@ function getvalue(){
 }
 
 function genera_tabla(filas, columnas) {
+    
+    if(tabla != null){
+        tabla.remove();
+
+    }
+
     // Crea un elemento table y un elemento tbody
-    var tabla1   = document.createElement("table");
+    var tablaCreada   = document.createElement("table");
+    
+    
+
     var tblBody = document.createElement("tbody");
 
-    tabla1.setAttribute("id", "tabla");
+
+
+    tablaCreada.setAttribute("id", "tabla");
 
     // Crea las celdas
     for (var i = 0; i < filas; i++) {
@@ -45,14 +64,13 @@ function genera_tabla(filas, columnas) {
     tblBody.appendChild(fila);
     }
 
-    tabla1.appendChild(tblBody);
+    tablaCreada.appendChild(tblBody);
     // appends table en body
-    div1.append(tabla1)
-    console.log(tabla1);
-    tabla = document.getElementById("tabla");
-
-    numFilas = tabla.rows.length
+    div1.append(tablaCreada)
+    tabla = tablaCreada;
+    numFilas = tabla.rows.length;
     numColumnas=tabla.rows[0].cells.length;
+    console.log(tabla);
 
 }
 // Itera las filas
@@ -162,15 +180,15 @@ function dificultad(x){
         document.getElementById('filas').disabled = true;
         document.getElementById('columnas').disabled = true;
 
-        document.getElementById('filas').value=5;
-        document.getElementById('columnas').value=6;
+        document.getElementById('filas').value=3;
+        document.getElementById('columnas').value=4;
 
         console.log(document.getElementById('filas').value);
     }else if(x==2){ //MEDIO
         document.getElementById('filas').disabled = true;
         document.getElementById('columnas').disabled = true;
 
-        document.getElementById('filas').value=6;
+        document.getElementById('filas').value=5;
         document.getElementById('columnas').value=6;
     }else if(x==3){ //DIFICIL
         document.getElementById('filas').disabled = true;
