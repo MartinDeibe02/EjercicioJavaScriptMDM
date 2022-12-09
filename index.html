@@ -22,11 +22,10 @@
         </div>
         <div id="gamePanel">
             
-            <p id="msg-confirm"></p>
-
+            
         </div>
             <div id="div-form">
-                <h3 id="dificultad">Dificulta</h3>
+                <h3 id="dificultad">Dificultad</h3>
                 <form>
                     <div>
                         <input type="radio" name="dif" id="easy" value="easy" onclick="dificultad(1)">
@@ -44,7 +43,7 @@
                     </div>
 
                     <div>
-                        <input type="radio" name="dif" id="custom"  value="custom">
+                        <input type="radio" name="dif" id="custom" onclick="dificultad(4)"  value="custom">
                         <label for="facil">Personalizado</label>
                     </div>
 
@@ -55,11 +54,16 @@
                         <input type="text" name="columnas" id="columnas" disabled>
                         <br>
                         <input type="button" onclick="iniciar()" value="submit">
-                        
+                        <p id="msg-error"></p>
                     </div>
                 </form>
             </div>
-    </div>    
+    </div>
+
+    <div>
+        <h4 id="msg-confirm"></h4>
+    </div>
+    
 </body>
 
 <script class="abc" src="./javascript/index.js"></script>

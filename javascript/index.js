@@ -4,6 +4,8 @@ const msg = document.getElementById("msg");
 const msgRestante = document.getElementById("restante");
 const msgConfirm = document.getElementById("msg-confirm");
 const div1 = document.getElementById("gamePanel");
+const msg_error = document.getElementById("msg-error");
+
 let numFilas = 0;
 let numColumnas=0;
 let valorFilas;
@@ -25,8 +27,18 @@ game();
 function iniciar(){
 intentos = 0;
 getvalue();
-genera_tabla(valorFilas,valorColumnas);
-game();
+if((valorFilas * valorColumnas) % 2 == 0){
+    genera_tabla(valorFilas,valorColumnas);
+    game();
+}else{
+    msg_error.innerHTML ="No se puee crear un tablero de las dimensiones proporcionadas"
+
+    setTimeout(() => {
+        msg_error.innerHTML ="";
+
+    }, 1000);
+}
+
 }
 
 function getvalue(){
@@ -40,16 +52,9 @@ function genera_tabla(filas, columnas) {
         tabla.remove();
 
     }
-
     // Crea un elemento table y un elemento tbody
     var tablaCreada   = document.createElement("table");
-    
-    
-
     var tblBody = document.createElement("tbody");
-
-
-
     tablaCreada.setAttribute("id", "tabla");
 
     // Crea las celdas
@@ -71,6 +76,8 @@ function genera_tabla(filas, columnas) {
     numFilas = tabla.rows.length;
     numColumnas=tabla.rows[0].cells.length;
     console.log(tabla);
+    var tablaCreada   = document.createElement("table");
+
 
 }
 // Itera las filas
